@@ -4,19 +4,19 @@ import styles from './MemoryGame.css';
 import Card from '../../components/Card/Card'
 
 const tiles = [
-  'images/animal_0.png',
-  'images/animal_1.png',
-  'images/animal_2.png',
-  'images/animal_3.png',
-  'images/animal_4.png',
-  'images/animal_5.png',
-  'images/animal_6.png',
-  'images/animal_7.png',
-  'images/animal_8.png',
-  'images/animal_9.png',
-  'images/animal_10.png',
-  'images/animal_11.png',
-  'images/animal_12.png'
+  '/images/animal_0.png',
+  '/images/animal_1.png',
+  '/images/animal_2.png',
+  '/images/animal_3.png',
+  '/images/animal_4.png',
+  '/images/animal_5.png',
+  '/images/animal_6.png',
+  '/images/animal_7.png',
+  '/images/animal_8.png',
+  '/images/animal_9.png',
+  '/images/animal_10.png',
+  '/images/animal_11.png',
+  '/images/animal_12.png'
 ]
 const difficulties = {
   'Easy' : 1500,
