@@ -19,8 +19,8 @@ const tiles = [
   'images/animal_12.png'
 ]
 const difficulties = {
-  'Easy' : 2000,
-  'Medium' : 1000,
+  'Easy' : 1500,
+  'Medium' : 800,
   'Hard' : 500
 }
 
@@ -70,7 +70,7 @@ function MemoryGame() {
   }
   const checkWin = () =>{
     if(cards.length > 0 && cards.every(card => card.matched === true)){
-      alert("WINNER WINNER CHICKEN DINNER")
+      alert(`won at ${difficulties[difficulty]} difficulty for ${turns} turns`)
     }
   }
   const resetTurn = () => {
