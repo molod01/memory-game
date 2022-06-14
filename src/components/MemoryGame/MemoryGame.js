@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import styles from './MemoryGame.css';
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import styles from './MemoryGame.css'
 import Card from '../../components/Card/Card'
 
-const tiles = [
+
+// animals
+// fruits
+const animals = [
   '/images/animal_0.png',
   '/images/animal_1.png',
   '/images/animal_2.png',
@@ -15,9 +18,28 @@ const tiles = [
   '/images/animal_8.png',
   '/images/animal_9.png',
   '/images/animal_10.png',
-  '/images/animal_11.png',
-  '/images/animal_12.png'
+  '/images/animal_11.png'
 ]
+const fruits = [
+  '/images/fruit_0.png',
+  '/images/fruit_1.png',
+  '/images/fruit_2.png',
+  '/images/fruit_3.png',
+  '/images/fruit_4.png',
+  '/images/fruit_5.png',
+  '/images/fruit_6.png',
+  '/images/fruit_7.png',
+  '/images/fruit_8.png',
+  '/images/fruit_9.png',
+  '/images/fruit_10.png',
+  '/images/fruit_11.png'
+]
+
+const tileset = {
+  'animals' : animals,
+  'fruits' : fruits
+}
+
 const difficulties = {
   'Easy' : 1500,
   'Medium' : 800,
@@ -52,6 +74,7 @@ function MemoryGame() {
       alert(`won at ${getKeyByValue(difficulties, difficulty)} difficulty for ${turns} turns`.toLowerCase())
     }
   }
+  
   const resetTurn = () => {
     setFirstChoice(null)
     setSecondChoice(null)
@@ -65,18 +88,18 @@ function MemoryGame() {
   const generateCards = (boardSizeX, boardSizeY) => {
     let cards_set = []
     for (let i = 0; i < (boardSizeX * boardSizeY) / 2; i++) {
-      let card = { img: tiles[Math.round(Math.random() * 11)] }
+      let card = { img: tileset['fruits'][Math.round(Math.random() * 11)] }
       if (!cards_set.some((c) => c.img === card.img)) {
         cards_set.push(card)
-      } else i--;
+      } else i--
     }
     let cards = [...cards_set, ...cards_set]
     return cards.sort(() => Math.random() - 0.5)
-      .map((card) => ({ ...card, id: Math.random(), matched: false }));
+      .map((card) => ({ ...card, id: Math.random(), matched: false }))
   }
 
   useEffect(()=>{
-    setTimeout(() => checkWin(), 500);
+    setTimeout(() => checkWin(), 500)
   }, [cards])
 
   useEffect(() => {
@@ -89,17 +112,17 @@ function MemoryGame() {
             if (card.img === firstChoice.img) {
               return { ...card, matched: true }
             } else {
-              return card;
+              return card
             }
           })
         })
         resetTurn();
       }
       else {
-        setTimeout(() => resetTurn(), difficulty);
+        setTimeout(() => resetTurn(), difficulty)
       }
     }
-  }, [firstChoice, secondChoice]);
+  }, [firstChoice, secondChoice])
 
 
   return (
@@ -122,4 +145,4 @@ function MemoryGame() {
   )
 }
 
-export default MemoryGame;
+export default MemoryGame
