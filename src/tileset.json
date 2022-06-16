@@ -26,5 +26,17 @@
         "/images/fruit_9.png",
         "/images/fruit_10.png",
         "/images/fruit_11.png"
+    ],
+    "cars" : [
+        "/images/car_0.png",
+        "/images/car_1.png",
+        "/images/car_2.png",
+        "/images/car_3.png",
+        "/images/car_4.png",
+        "/images/car_5.png",
+        "/images/car_6.png",
+        "/images/car_7.png",
+        "/images/car_8.png",
+        "/images/car_9.png"
     ]
 }

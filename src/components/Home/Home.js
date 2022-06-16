@@ -10,10 +10,10 @@ const Home = () => {
   return (
     <>
     <h1>Categories</h1>
-    <div id="cards" style={{'grid-template-columns': '1fr 1fr 1fr 1fr'}}>
+    <div id="cards" style={{gridTemplateColumns: '1fr 1fr 1fr 1fr'}}>
         {Object.keys(tileset).map(category => 
           <Link to="/game" state={{category: category}} className="category-card" key={category}>
-              <img src={process.env.PUBLIC_URL + tileset[category][Math.round(Math.random() * 11)]} alt={category} />
+              <img src={process.env.PUBLIC_URL + tileset[category][Math.round(Math.random() * tileset[category].length-1)]} alt={category} />
               <h5>{category}</h5>
           </Link>
         )}

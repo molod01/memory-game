@@ -25,7 +25,7 @@ function MemoryGame() {
   const [turns, setTurns] = useState(0);
   const [h_size, setH_size] = useState(3);
   const [v_size, setV_size] = useState(4);
-  const [gridstyle, setGridStyle] = useState('1fr 1fr 1fr 1fr;')
+  const [gridstyle, setGridStyle] = useState('1fr 1fr 1fr 1fr')
 
   const location = useLocation();
   const state = location.state;
@@ -68,8 +68,10 @@ function MemoryGame() {
 
   const generateCards = () => {
     let cards_set = []
+    
     for (let i = 0; i < (h_size * v_size) / 2; i++) {
-      let card = { img: tileset[state.category][Math.round(Math.random() * 11)] }
+      let rand = Math.round(Math.random() * tileset[state.category].length-1)
+      let card = { img: tileset[state.category][rand] }
       if (!cards_set.some((c) => c.img === card.img)) {
         cards_set.push(card)
       } else i--
@@ -90,6 +92,9 @@ function MemoryGame() {
       style += '1fr '
     }
     setGridStyle(style)
+    if(h_size == 3 && v_size == 3){
+      setV_size(4)
+    }
   }, [state, h_size, v_size])
 
   useEffect(() => {
@@ -127,11 +132,11 @@ function MemoryGame() {
         </div>
         <div className='size'>
           <label htmlFor="size">Board size:</label>
-          <input name='size' id="horizontal" onChange={changeSize} type='number' min="1" max="4" value={h_size} />
-          <input name='size' id="vertical" onChange={changeSize} type='number' min="1" max="4" value={v_size} />
+          <input name='size' id="horizontal" onChange={changeSize} type='number' min="2" max="4" value={h_size} />
+          <input name='size' id="vertical" onChange={changeSize} type='number' min="2" max="4" value={v_size} />
         </div>
       </div>
-      <div id='cards' style={{ 'grid-template-columns': gridstyle }}>{
+      <div id='cards' style={{ gridTemplateColumns: gridstyle }}>{
         cards.map(card => (
           <Card key={card.id} card={card} handleChoice={handleChoice}
             flipped={card.matched || card === firstChoice || card === secondChoice}
