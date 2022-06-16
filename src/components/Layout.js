@@ -3,8 +3,6 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 
 
 const Layout = () => {
-    const [category, setCategory] = useState("");
-    const navigate = useNavigate();
 
     return (
         <>
@@ -19,7 +17,7 @@ const Layout = () => {
                     </div>
                 </nav>
             </header>
-            <main className="d-flex justify-content-center align-items-center">
+            <main className="justify-content-center align-items-center">
                 <Outlet />
             </main>
         </>

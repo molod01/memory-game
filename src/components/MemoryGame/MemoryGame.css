@@ -1,5 +1,5 @@
 
-input[type='button'] {
+input {
     margin: 10px;
     background: none;
     padding: 6px 12px;
@@ -11,20 +11,21 @@ input[type='button'] {
     font-weight: bold;
 }
 
-input[type='button']:hover {
+input:hover {
     border: 2px outset rgb(130, 30, 0);
     color: rgb(130, 30, 0);
 }
 
-.difficulty input{
+.settings input{
     border: 1px solid rgb(100, 25, 50);
     border-radius: 4px;
     color: rgb(100, 25, 50);
     cursor: pointer;
     font-size: .8em;
     font-weight:normal;
+    margin: .5em;
 }
-.difficulty input.active{
+.settings input.active{
     border: 1px solid rgb(100, 25, 50);
     border-radius: 4px;
     color: rgb(100, 25, 50);
@@ -32,7 +33,33 @@ input[type='button']:hover {
     font-size: .8em;
     font-weight:bold;
 }
-.difficulty input:hover{
+.settings input:hover{
     border: 1px outset rgb(130, 30, 0);
     color: rgb(130, 30, 0);
 }
+
+.settings{
+    position: relative;
+}
+.difficulty{
+    float: left;
+    margin: 0 2em;
+}
+.size{
+    margin: 0 2em;
+}
+.size input{
+    width: 4em;
+}
+label {
+    margin-right: 1em;
+}
+/* .size input[type=number]::-webkit-outer-spin-button,
+.size input[type=number]::-webkit-inner-spin-button {
+  margin-left: 20px;
+}
+
+.size input[type=number]::-moz-outer-spin-button,
+.size input[type=number]::-moz-inner-spin-button {
+  margin-left: 20px;
+} */

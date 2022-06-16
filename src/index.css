@@ -16,6 +16,13 @@ main{
 #cards {
   margin: 50px 20px 0 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 15px;
+}
+
+.bg-light{
+  background-color: rgb(255, 110, 180) !important;
+}
+
+p{
+  margin: 1rem;
 }
