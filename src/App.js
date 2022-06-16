@@ -1,5 +1,5 @@
 import MemoryGame from './components/MemoryGame/MemoryGame'
-import Layout from './components/Layout/Layout';
+import Layout from './components/Layout';
 import Home from './components/Home/Home';
 import { 
   BrowserRouter,
