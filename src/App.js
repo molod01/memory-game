@@ -4,18 +4,19 @@ import Home from './components/Home/Home';
 import { 
   BrowserRouter,
   Routes,
-  Route
+  Route,
+  HashRouter
 } from "react-router-dom";
 function App() {
   return (
-    <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Home />}/>
-                    <Route path="game" element={<MemoryGame />}/>
-                </Route>
-            </Routes>
-        </BrowserRouter>
+    <HashRouter basename='/'>
+      <Routes>
+          <Route path="/" element={<Layout />}>
+              <Route index element={<Home />}/>
+              <Route path="game" element={<MemoryGame />}/>
+          </Route>
+      </Routes>
+    </HashRouter>
   );
 }
 

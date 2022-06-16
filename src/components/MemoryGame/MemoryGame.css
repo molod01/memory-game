@@ -54,12 +54,3 @@ input:hover {
 label {
     margin-right: 1em;
 }
-/* .size input[type=number]::-webkit-outer-spin-button,
-.size input[type=number]::-webkit-inner-spin-button {
-  margin-left: 20px;
-}
-
-.size input[type=number]::-moz-outer-spin-button,
-.size input[type=number]::-moz-inner-spin-button {
-  margin-left: 20px;
-} */
