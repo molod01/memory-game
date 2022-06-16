@@ -39,18 +39,41 @@ input:hover {
 }
 
 .settings{
-    position: relative;
+    display: inline-block;
 }
 .difficulty{
-    float: left;
     margin: 0 2em;
+    padding: 1rem 1rem;
+    vertical-align: middle;
 }
 .size{
     margin: 0 2em;
+    padding: 1rem 1rem;
+    vertical-align: middle;
 }
 .size input{
     width: 4em;
 }
 label {
     margin-right: 1em;
+}
+.reset{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1) rotate(0);
+    cursor: pointer;
+    line-height: 1.2;
+    white-space: nowrap;
+    padding: 0.5em 1.25em;
+    border-radius: 2em;
+    background: #1a73d9;
+    color: #fff;
+    box-shadow: 0 0.5em 1em #999;
+    opacity: 1;
+    transition: box-shadow 200ms linear, margin 200ms linear,transform 300ms ease-out, opacity 300ms ease-out;
+}
+.reset:before {
+    content: "\f01e";
+    margin-right: 0.5em;
 }

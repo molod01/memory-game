@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import {React, useState, useEffect } from 'react'
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types'
 import styles from './MemoryGame.css'
 import Card from '../../components/Card/Card'
 import tileset from '../../tileset.json'
 import { useNavigate, useLocation } from "react-router-dom";
+import App from '../../App'
 
 const difficulties = {
   'Easy': 1500,
@@ -25,10 +27,11 @@ function MemoryGame() {
   const [turns, setTurns] = useState(0);
   const [h_size, setH_size] = useState(3);
   const [v_size, setV_size] = useState(4);
+  //const [time, setTime] = useState(0)
   const [gridstyle, setGridStyle] = useState('1fr 1fr 1fr 1fr')
-
   const location = useLocation();
   const state = location.state;
+
 
   const newGame = () => {
     setCards(generateCards())
@@ -52,7 +55,16 @@ function MemoryGame() {
   }
   const checkWin = () => {
     if (cards.length > 0 && cards.every(card => card.matched === true)) {
-      alert(`won at ${getKeyByValue(difficulties, difficulty)} difficulty for ${turns} turns`.toLowerCase())
+      
+      //alert(`Won at ${getKeyByValue(difficulties, difficulty)} difficulty in ${time} seconds and ${turns} turns`)
+      alert(`Won at ${getKeyByValue(difficulties, difficulty)} difficulty in ${turns} turns`)
+      
+      //2nd variant of win logic
+      // ReactDOM.render(
+      //   <div className='reset'></div>,
+      //   document.getElementById('result')
+      // )
+
     }
   }
 
@@ -70,9 +82,10 @@ function MemoryGame() {
     let cards_set = []
     
     for (let i = 0; i < (h_size * v_size) / 2; i++) {
-      let rand = Math.round(Math.random() * tileset[state.category].length-1)
+      let rand = Math.round(Math.random() * (tileset[state.category].length-1))
       let card = { img: tileset[state.category][rand] }
       if (!cards_set.some((c) => c.img === card.img)) {
+        console.log(card, rand)
         cards_set.push(card)
       } else i--
     }
@@ -119,13 +132,18 @@ function MemoryGame() {
     }
   }, [firstChoice, secondChoice])
 
+  // useEffect(() => {
+  //   const timer = setInterval(() => setTime(time + 1), 1000);
+  //   return () => clearInterval(timer);
+  // }, [time]);
+
   return (
     <div>
       <input type='button' value='New Game' onClick={newGame} />
-      <p>Turns: {turns}</p>
+      <p>Turns: {turns}</p>тз
       <div className='settings'>
         <div className='difficulty' onClick={changeDifficulty}>
-          <label htmlFor="difficulty">Board size:</label>
+          <label htmlFor="difficulty">Difficulty:</label>
           <input name="difficulty" className={difficulty === difficulties['Easy'] ? 'active' : ''} type='button' value='Easy' />
           <input name="difficulty" className={difficulty === difficulties['Medium'] ? 'active' : ''} type='button' value='Medium' />
           <input name="difficulty" className={difficulty === difficulties['Hard'] ? 'active' : ''} type='button' value='Hard' />
@@ -143,6 +161,7 @@ function MemoryGame() {
             disabled={disabled} />
         ))}
       </div>
+      <div id='result'></div>
     </div>
   )
 }
