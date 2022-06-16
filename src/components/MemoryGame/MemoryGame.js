@@ -140,7 +140,7 @@ function MemoryGame() {
   return (
     <div>
       <input type='button' value='New Game' onClick={newGame} />
-      <p>Turns: {turns}</p>тз
+      <p>Turns: {turns}</p>
       <div className='settings'>
         <div className='difficulty' onClick={changeDifficulty}>
           <label htmlFor="difficulty">Difficulty:</label>
