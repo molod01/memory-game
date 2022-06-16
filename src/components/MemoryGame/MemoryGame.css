@@ -1,10 +1,6 @@
-.game {
-    max-width: 860px;
-    margin: 40px auto;
-}
 
 input[type='button'] {
-    margin: 20px;
+    margin: 10px;
     background: none;
     padding: 6px 12px;
     border: 2px solid rgb(100, 25, 50);
@@ -39,11 +35,4 @@ input[type='button']:hover {
 .difficulty input:hover{
     border: 1px outset rgb(130, 30, 0);
     color: rgb(130, 30, 0);
-}
-
-#cards {
-    margin: 50px 20px 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 15px;
 }

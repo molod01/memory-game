@@ -2,43 +2,8 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styles from './MemoryGame.css'
 import Card from '../../components/Card/Card'
-
-
-// animals
-// fruits
-const animals = [
-  '/images/animal_0.png',
-  '/images/animal_1.png',
-  '/images/animal_2.png',
-  '/images/animal_3.png',
-  '/images/animal_4.png',
-  '/images/animal_5.png',
-  '/images/animal_6.png',
-  '/images/animal_7.png',
-  '/images/animal_8.png',
-  '/images/animal_9.png',
-  '/images/animal_10.png',
-  '/images/animal_11.png'
-]
-const fruits = [
-  '/images/fruit_0.png',
-  '/images/fruit_1.png',
-  '/images/fruit_2.png',
-  '/images/fruit_3.png',
-  '/images/fruit_4.png',
-  '/images/fruit_5.png',
-  '/images/fruit_6.png',
-  '/images/fruit_7.png',
-  '/images/fruit_8.png',
-  '/images/fruit_9.png',
-  '/images/fruit_10.png',
-  '/images/fruit_11.png'
-]
-
-const tileset = {
-  'animals' : animals,
-  'fruits' : fruits
-}
+import tileset from '../../tileset.json'
+import { useNavigate, useLocation } from "react-router-dom";
 
 const difficulties = {
   'Easy' : 1500,
@@ -57,6 +22,9 @@ function MemoryGame() {
   const [firstChoice, setFirstChoice] = useState(null)
   const [secondChoice, setSecondChoice] = useState(null)
   const [turns, setTurns] = useState(0);
+
+  const location = useLocation();
+  const state = location.state;
 
   const newGame = () => {
     setCards(generateCards(3, 4))
@@ -88,7 +56,7 @@ function MemoryGame() {
   const generateCards = (boardSizeX, boardSizeY) => {
     let cards_set = []
     for (let i = 0; i < (boardSizeX * boardSizeY) / 2; i++) {
-      let card = { img: tileset['fruits'][Math.round(Math.random() * 11)] }
+      let card = { img: tileset[state.category][Math.round(Math.random() * 11)] }
       if (!cards_set.some((c) => c.img === card.img)) {
         cards_set.push(card)
       } else i--
@@ -126,7 +94,7 @@ function MemoryGame() {
 
 
   return (
-    <div className='game'>
+    <div>
       <input type='button' value='New Game' onClick={newGame} />
       <p>Turns: {turns}</p>
       <div className='difficulty' onClick={changeDifficulty}>

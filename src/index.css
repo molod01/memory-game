@@ -3,7 +3,19 @@ body {
   text-align: center;
   font-family: 'Kdam Thmor Pro', sans-serif;
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.2em;
   background: rgb(255, 174, 224);
   color: rgb(100, 25, 50);
+}
+
+main{
+  max-width: 860px;
+  margin: 40px auto;
+}
+
+#cards {
+  margin: 50px 20px 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
 }

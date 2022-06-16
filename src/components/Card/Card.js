@@ -9,7 +9,7 @@ export default function Card({card, handleChoice, flipped, disabled}){
     }
   }
   return (
-    <div className='card'>
+    <div className='game-card'>
       <div className={flipped ? 'flipped' : ''}>
         <img className='front' src={process.env.PUBLIC_URL + card.img}/>
         <img className='back'  src={process.env.PUBLIC_URL + '/images/none.png'} onClick={handleClick}/>
