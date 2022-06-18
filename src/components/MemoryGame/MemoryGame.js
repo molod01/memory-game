@@ -45,26 +45,15 @@ function MemoryGame() {
     }
   }
   const changeSize = (e) => {
-    if (e.target.id == 'horizontal') {
-      console.log(e.target.value)
-      setH_size(e.target.value)
-    } else if (e.target.id == 'vertical') {
-      console.log(e.target.value)
-      setV_size(e.target.value)
-    }
+      setH_size(e.target.value.split('x')[0])
+      setV_size(e.target.value.split('x')[1])
   }
   const checkWin = () => {
     if (cards.length > 0 && cards.every(card => card.matched === true)) {
       
       //alert(`Won at ${getKeyByValue(difficulties, difficulty)} difficulty in ${time} seconds and ${turns} turns`)
-      alert(`Won at ${getKeyByValue(difficulties, difficulty)} difficulty in ${turns} turns`)
-      
-      //2nd variant of win logic
-      // ReactDOM.render(
-      //   <div className='reset'></div>,
-      //   document.getElementById('result')
-      // )
-
+      window.confirm(`Won at ${getKeyByValue(difficulties, difficulty)} difficulty in ${turns} turns`)
+      setTimeout(() => newGame(), 800)
     }
   }
 
@@ -150,8 +139,15 @@ function MemoryGame() {
         </div>
         <div className='size'>
           <label htmlFor="size">Board size:</label>
-          <input name='size' id="horizontal" onChange={changeSize} type='number' min="2" max="4" value={h_size} />
-          <input name='size' id="vertical" onChange={changeSize} type='number' min="2" max="4" value={v_size} />
+          <select name='size' onChangeCapture={changeSize}>
+            <option>2 x 2</option>
+            <option selected='true' >2 x 3</option>
+            <option>2 x 4</option>
+            <option>3 x 4</option>
+            <option>4 x 4</option>
+          </select>
+          {/* <input name='size' id="horizontal" onChange={changeSize} type='number' min="2" max="4" value={h_size} /> */}
+          {/* <input name='size' id="vertical" onChange={changeSize} type='number' min="2" max="4" value={v_size} /> */}
         </div>
       </div>
       <div id='cards' style={{ gridTemplateColumns: gridstyle }}>{

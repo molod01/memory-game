@@ -45,11 +45,13 @@ input:hover {
     margin: 0 2em;
     padding: 1rem 1rem;
     vertical-align: middle;
+    display: inline-block;
 }
 .size{
     margin: 0 2em;
     padding: 1rem 1rem;
     vertical-align: middle;
+    display: inline-block;
 }
 .size input{
     width: 4em;
@@ -57,7 +59,15 @@ input:hover {
 label {
     margin-right: 1em;
 }
-.reset{
+select{
+    background-color: rgb(255, 170, 220);
+    border: 1px solid rgb(100, 25, 50);
+    border-radius: 4px;
+    color: rgb(100, 25, 50);
+    cursor: pointer;
+    size: 1em;
+}
+/* .reset{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -76,4 +86,4 @@ label {
 .reset:before {
     content: "\f01e";
     margin-right: 0.5em;
-}
+} */

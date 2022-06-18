@@ -5,7 +5,7 @@ body {
   font-family: 'Kdam Thmor Pro', sans-serif;
   margin: 0;
   font-size: 1.2em;
-  background: rgb(255, 174, 224);
+  background: rgb(255, 170, 220);
   color: rgb(100, 25, 50);
 }
 
@@ -25,5 +25,5 @@ main{
 }
 
 p{
-  margin: 1rem;
+  margin: 1em;
 }
